@@ -12,7 +12,8 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { SearchPipe } from './common/search.pipe';
 import { GamedetailComponent } from './components/gamedetail/gamedetail.component'
 import {GaugeModule} from 'angular-gauge';
-import { TabsComponent } from './components/tabs/tabs.component'
+import { TabsComponent } from './components/tabs/tabs.component';
+import { LoginComponent } from './components/login/login.component'
 
 
 
@@ -23,7 +24,8 @@ import { TabsComponent } from './components/tabs/tabs.component'
     GamesComponent,
     SearchPipe,
     GamedetailComponent,
-    TabsComponent
+    TabsComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

@@ -11,6 +11,7 @@ import { NgForm } from "@angular/forms";
 export class HeaderComponent implements OnInit {
 
   searchGame: string ='';
+  guest: string = 'Guest'
   constructor(private gameService: GameServiceService,
               private router: Router) { }
 
@@ -30,6 +31,11 @@ export class HeaderComponent implements OnInit {
 
   navigateToHome(){
     this.router.navigate(['/home']);
+  }
+
+  loginBtn(){
+    console.log("Login btn clicked")
+    this.router.navigate(['/login']);
   }
 
 
