@@ -1,0 +1,36 @@
+<header >
+    <div class="navbar navbar-dark bg-primary shadow-sm">
+        <div class="navbar-brand align-item-center d-flex" style="margin-left: 10px">
+
+            <!-- <i style="font-size: 50px;margin-left: 10px" class="fa-solid fa-gamepad"></i>&nbsp;&nbsp;&nbsp;-->
+            <div (click)="navigateToHome()" class="logo">
+                <img style="width:80px;height:60px;" src="../../assets/game-icon.jpg" alt="logo">
+            </div>
+            <div (click)="navigateToHome()" class="logo">
+                <strong style="margin-top: 10px; margin-left: 10px"> GAME Database</strong>
+            </div>
+            
+
+            <form class="row" style="margin-left: 10px; width:100%" #form="ngForm" (ngSubmit)="getSearchedGames(form)">
+                 <div class="col-auto">
+                    <input type="text" 
+                    [(ngModel)]="searchGame" 
+                    name="search" 
+                    class="form-control" 
+                    id="searchBox" 
+                    placeholder="Search Games">
+                </div>
+                <div class="col-auto">
+                
+                <!-- <button style="background-color:#563d7c;margin-left: -20px;" type="button" (click)="getAllGames()" class="btn btn-primary mb-3">Search
+                </button> -->
+
+                    <button style="background-color:#563d7c;margin-left: -20px;" class="btn btn-primary mb-3">
+                Search
+                </button>
+
+                </div>
+            </form>
+        </div>
+    </div>
+</header>

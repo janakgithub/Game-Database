@@ -1,0 +1,35 @@
+<div class="form-group row" style="margin: 25px">
+    <label for="sort" class="col-sm-1" style="width:10%;">SORT the games</label>
+    <select class="form-control" id="sort" style="width: 25%;" [(ngModel)]="sort" name="sort" (change)="sorting()">
+          <option value="name">Name</option>
+          <option value="released">Released</option>
+          <option valeu="added">Added</option>
+          <option value="created">Created</option>
+          <option value="updated">Updated</option>
+          <option value="rating">Rating</option>
+          <option value="metacritic">Metacritic</option>
+        </select>
+</div>
+<div *ngIf="searching" class="spinner-border text-primary" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+
+<div class="gamelist">
+    <ng-container *ngFor="let game of gameList | search:searchKey:title">
+        <div class="eachgame" style="border:black" (click)="gameDetails(game.id)">
+            <div class="thumb-container">
+                <img src="{{game.background_image}}" alt="game_image" class="thumbnail">
+            </div>
+            <div class="description">
+                <h5 style="color:white" class="name">{{game.name}}</h5>
+
+                <div style="color:white" class="platforms">
+
+                    <img *ngFor="let gameType of game.parent_platforms" src="../../../assets/{{gameType.platform.name}}.png" alt="{{gameType.platform.name}}"
+                        class="platform">
+
+                </div>
+            </div>
+        </div>
+    </ng-container>
+</div>

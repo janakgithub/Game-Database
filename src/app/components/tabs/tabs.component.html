@@ -1,0 +1,38 @@
+<div style="text-align:center" class="navbar-dark bg-primary">
+  <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist" style=" padding-left:18%">
+    <li class="flex-sm-fill text-sm-center nav-link " role="presentation" style="width:30%">
+      <button class="nav-link active about" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button"
+        role="tab" aria-controls="pills-home" aria-selected="true">About</button>
+    </li>
+    <li class="flex-sm-fill text-sm-center nav-link " role="presentation" style="width:30%">
+      <button class="nav-link about" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button"
+        role="tab" aria-controls="pills-profile" aria-selected="false">Screenshots</button>
+    </li>
+    <li class="flex-sm-fill text-sm-center nav-link " role="presentation" style="width:30%">
+      <button class="nav-link about" id="pills-contact-tab" data-bs-toggle="pill" data-bs-target="#pills-contact" type="button"
+        role="tab" aria-controls="pills-contact" aria-selected="false">Trailers</button>
+    </li>
+  </ul>
+</div>
+<div class="tab-content" id="pills-tabContent">
+  <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+    .HOME.
+
+  </div>
+  <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+    <div *ngIf="game.screenshots?.length">
+      <img *ngFor="let ss of game.screenshots" class="screenshot" src="{{ss.image}}" alt="screenshot">
+    </div>
+    <div *ngIf="!game.screenshots?.length">
+      No screenshots for this game!
+    </div>
+  </div>
+  <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
+    <div *ngIf="game.trailers?.length">
+      <video *ngFor="let trailer of game.trailers" class="trailer" controls>
+        <source src="{{trailer.data?.max}}" type="video/mp4" />
+      </video>
+    </div>
+    <div *ngIf="!game.trailers?.length"> No Trailers for this Game!</div>
+  </div>
+</div>
