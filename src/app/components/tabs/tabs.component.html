@@ -14,13 +14,40 @@
     </li>
   </ul>
 </div>
-<div class="tab-content" id="pills-tabContent">
+<div class="tab-content" id="pills-tabContent" style="background-color:black; color:white">
   <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
-      <div>
-        <a href="{{game.website}}" target="_blank">{{game.website}}</a>
-      </div>
-      {{game.description}}
 
+    <p *ngIf="game.parent_platforms?.length">
+      Platforms Supported:
+      <span *ngFor="let p of game.parent_platforms; let last = last">
+          {{p.platform.name}} <span *ngIf="!last">,</span>
+      </span>
+    </p>
+    <p *ngIf="game.publishers?.length">
+      Game Publishers:
+      <span *ngFor="let pub of game.publishers; let last = last">
+            {{pub.name}} <span *ngIf="!last">,</span>
+      </span>
+    </p>
+    <p *ngIf="game.website">
+      <a href="{{game.website}}" target="_blank">{{game.website}}</a>
+    </p>
+    <div [innerHTML]="game.description"></div>
+
+
+
+    <div class="card row" style="background-color:black">
+      <div *ngFor="let rating of game.ratings">
+        <span *ngIf="rating.title==='exceptional'" style="width: 10%">
+                    <i class="fa-solid fa-thumbs-up"></i>
+                          <span>{{rating.count || 0}}</span>
+        </span>
+        <span *ngIf="rating.title==='skip'" style="width: 10%">
+                      <i class="fa-solid fa-thumbs-down"></i>
+                          <span>{{rating.count || 0}}</span>
+        </span>
+      </div>
+    </div>
   </div>
   <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
     <div *ngIf="game.screenshots?.length">

@@ -12,14 +12,10 @@
 
 
             <form class="row" style="margin-left: 10px; width:100%" #form="ngForm" (ngSubmit)="getSearchedGames(form)">
-                <div class="col-auto">
+                <div class="col-auto"> 
                     <input type="text" [(ngModel)]="searchGame" name="search" class="form-control" id="searchBox" placeholder="Search Games">
                 </div>
                 <div class="col-auto">
-
-                    <!-- <button style="background-color:#563d7c;margin-left: -20px;" type="button" (click)="getAllGames()" class="btn btn-primary mb-3">Search
-                </button> -->
-
                     <button style="background-color:#563d7c;margin-left: -20px;" class="btn btn-primary mb-3">
                 Search
                 </button>
@@ -38,3 +34,4 @@
         </div>
     </div>
 </header>
+
