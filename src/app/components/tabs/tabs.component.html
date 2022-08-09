@@ -57,9 +57,9 @@
       No screenshots for this game!
     </div>
   </div>
-  <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
+  <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab" >
     <div *ngIf="game.trailers?.length">
-      <video *ngFor="let trailer of game.trailers" class="trailer" controls>
+      <video *ngFor="let trailer of game.trailers" class="trailer" controls style="color:white">
         <source src="{{trailer.data?.max}}" type="video/mp4" />
       </video>
     </div>
